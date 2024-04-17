@@ -165,24 +165,6 @@ class AppwriteConfig {
     banner: File,
     hostname: string,
     eventdate: string,
-    email: string,
-    country: string,
-    address: string,
-    city: string,
-    state: string,
-    postal: string,
-    audience: string,
-    type: string,
-    attendees: number,
-    price: number,
-    tech: string,
-    agenda: string,
-    sponsor: Sponsors[],
-    approval: string,
-    twitter: string,
-    website: string,
-    linkedin: string,
-    instagram: string
   ): Promise<String> {
     try {
       this.storage
@@ -195,30 +177,12 @@ class AppwriteConfig {
               url: `${process.env.NEXT_PUBLIC_ENDPOINT}/storage/buckets/${this.bannerBucketId}/files/${res.$id}/view?project=${process.env.NEXT_PUBLIC_PROJECTID}&mode=admin`,
               hostname: hostname,
               eventdate: eventdate,
-              email: email,
-              country: country,
-              address: address,
-              city: city,
-              state: state,
-              postal: postal,
-              audience: audience,
-              type: type,
-              attendees: attendees,
-              price: price,
-              tech: tech,
-              agenda: agenda,
-              approval: approval,
-              created: JSON.parse(localStorage.getItem("userInfo") || "{}").$id,
-              twitter: twitter,
-              website: website,
-              linkedin: linkedin,
-              instagram: instagram,
               registrations: [],
             })
             .then((res) => {
               const serverConfig = new ServerConfig();
               serverConfig.createRegColl(res.$id, eventname);
-              serverConfig.createSponColl(res.$id, eventname, sponsor, JSON.parse(localStorage.getItem("userInfo") || "{}").$id);
+              // serverConfig.createSponColl(res.$id, eventname, sponsor, JSON.parse(localStorage.getItem("userInfo") || "{}").$id);
               return Promise.resolve("sucess");
             });
         });
