@@ -53,16 +53,16 @@ export default function Event({ params }: { params: { event: string } }) {
           console.log(error);
         }
       );
-    appwriteConfig.databases
-      .listDocuments(`${process.env.NEXT_PUBLIC_SPODB}`, params["event"])
-      .then(
-        function (response) {
-          setSponsors(response.documents);
-        },
-        function (error) {
-          console.log(error);
-        }
-      );
+    // appwriteConfig.databases
+    //   .listDocuments(`${process.env.NEXT_PUBLIC_SPODB}`, params["event"])
+    //   .then(
+    //     function (response) {
+    //       setSponsors(response.documents);
+    //     },
+    //     function (error) {
+    //       console.log(error);
+    //     }
+    //   );
     setLoader(false);
   }, []);
 

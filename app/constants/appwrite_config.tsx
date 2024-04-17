@@ -12,7 +12,7 @@ interface Sponsors {
 class ServerConfig {
   client: sdk.Client = new sdk.Client();
   regDb: string = `${process.env.NEXT_PUBLIC_REGDB}`;
-  sponDb: string = `${process.env.NEXT_PUBLIC_SPODB}`;
+  // sponDb: string = `${process.env.NEXT_PUBLIC_SPODB}`;
   databases: sdk.Databases = new sdk.Databases(this.client);
 
   constructor() {
@@ -38,31 +38,31 @@ class ServerConfig {
       });
   }
 
-  createSponColl(id: string, name: string, sponsor: Sponsors[], user:string) {
-    this.databases
-      .createCollection(this.sponDb, id, name, [
-        Permission.read(Role.any()), // Anyone can view this document
-        Permission.update(Role.user(user)), // Writers can update this document
-        Permission.create(Role.user(user)), // Admins can update this document
-        Permission.delete(Role.user(user)), // Admins can delete this document
-      ])
-      .then((res) => {
-        this.databases
-          .createStringAttribute(this.sponDb, id, "name", 50, false)
-          .then((res) => {
-            this.databases
-              .createStringAttribute(this.sponDb, id, "url", 50, false)
-              .then((res) => {
-                for (var i = 0; i < sponsor.length; i++) {
-                  this.databases.createDocument(this.sponDb, id, ID.unique(), {
-                    name: sponsor[i].name,
-                    url: sponsor[i].url,
-                  });
-                }
-              });
-          });
-      });
-  }
+  // createSponColl(id: string, name: string, sponsor: Sponsors[], user:string) {
+  //   this.databases
+  //     .createCollection(this.sponDb, id, name, [
+  //       Permission.read(Role.any()), // Anyone can view this document
+  //       Permission.update(Role.user(user)), // Writers can update this document
+  //       Permission.create(Role.user(user)), // Admins can update this document
+  //       Permission.delete(Role.user(user)), // Admins can delete this document
+  //     ])
+  //     .then((res) => {
+  //       this.databases
+  //         .createStringAttribute(this.sponDb, id, "name", 50, false)
+  //         .then((res) => {
+  //           this.databases
+  //             .createStringAttribute(this.sponDb, id, "url", 50, false)
+  //             .then((res) => {
+  //               for (var i = 0; i < sponsor.length; i++) {
+  //                 this.databases.createDocument(this.sponDb, id, ID.unique(), {
+  //                   name: sponsor[i].name,
+  //                   url: sponsor[i].url,
+  //                 });
+  //               }
+  //             });
+  //         });
+  //     });
+  // }
 }
 
 class AppwriteConfig {

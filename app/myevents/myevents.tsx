@@ -135,12 +135,12 @@ export default function MyEvents() {
                                         `${process.env.NEXT_PUBLIC_REGDB}`,
                                         `${item.$id}`
                                       )
-                                      .then(() => {
-                                        server.databases
-                                          .deleteCollection(
-                                            `${process.env.NEXT_PUBLIC_SPODB}`,
-                                            `${item.$id}`
-                                          )
+                                      // .then(() => {
+                                      //   server.databases
+                                      //     .deleteCollection(
+                                      //       `${process.env.NEXT_PUBLIC_SPODB}`,
+                                      //       `${item.$id}`
+                                      //     )
                                           .then(() => {
                                             appwriteConfig.databases.deleteDocument(
                                               `${process.env.NEXT_PUBLIC_DATABASEID}`,
@@ -148,7 +148,7 @@ export default function MyEvents() {
                                               `${item.$id}`
                                             );
                                           });
-                                      });
+                                      // });
                                   }}
                                 >
                                   Delete Event
