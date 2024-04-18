@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Icon from "../public/logo/logo-transparent-svg.svg";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 const navigation = [
   { name: "Product", href: "#" },
