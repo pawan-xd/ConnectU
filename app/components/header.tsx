@@ -40,7 +40,7 @@ export default function Header() {
             );
             if (sucess) {
               localStorage.removeItem("userInfo");
-              router.push("/login");
+              router.push("/");
             }
           }}
         >

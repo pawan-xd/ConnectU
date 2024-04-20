@@ -1,36 +1,45 @@
 "use client";
-
-import { useLottie } from "lottie-react";
-import sucess from "../../../public/anim/sucess.json";
-import { useRouter } from "next/navigation";
-import {AppwriteConfig} from "@/app/constants/appwrite_config";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { AppwriteConfig } from "@/app/constants/appwrite_config";
 
-const style = {
-  height: 300,
-};
-
-export default function Sucess() {
-  const appwriteconfig = new AppwriteConfig();
-
-  useEffect(() => {
-    appwriteconfig.getCurUser();
-    setTimeout(() => {
-      router.push("/landing");
-    }, 2800);
-  });
-
+export default function Sucess({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string };
+}) {
   const router = useRouter();
+	useEffect(() => {
+		const updateSession = async () => {
+			const appwriteconfig = new AppwriteConfig();
 
-  const options = {
-    animationData: sucess,
-    loop: true,
-    autoplay: true,
-  };
+			try {
+				// Update the magic URL session with the provided user ID and secret
+				await appwriteconfig.account.updateMagicURLSession(
+					searchParams.userId,
+					searchParams.secret
+				);
 
-  const { View } = useLottie(options, style);
+				// Assuming `getCurUser` is an async function, await its execution
+				await appwriteconfig.getCurUser();
+				router.push("/landing");
 
-  return (
-    <div className="h-screen flex items-center justify-center">{View}</div>
-  );
+
+			} catch (error) {
+				console.error(
+					"Error handling magic URL session confirmation:",
+					error
+				);
+			}
+		};
+		// Call the updateSession function when the component mounts
+		updateSession();
+	});
+
+	// Render any UI components here if needed
+	return (
+		<div className="h-screen flex items-center justify-center">
+			Loading...
+		</div>
+	);
 }

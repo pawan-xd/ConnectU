@@ -11,9 +11,6 @@ import { useEffect } from "react";
 export default function LoginComponent() {
   const router = useRouter();
   const appwriteConfig = new AppwriteConfig();
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    appwriteConfig.googlelog();
-  };
 
   useEffect(() => {
     if (localStorage.getItem("userInfo") !== null) {
@@ -21,9 +18,6 @@ export default function LoginComponent() {
     }
   });
 
-  const githublog = (event: React.MouseEvent<HTMLButtonElement>) => {
-    appwriteConfig.githublog();
-  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
@@ -41,8 +35,10 @@ export default function LoginComponent() {
           </div>
           <div className="p-5">
             <div className="grid grid-cols-3 gap-1">
+              {/* login buttons */}
+              {/* google button */}
               <button
-                onClick={buttonHandler}
+                // onClick={buttonHandler}
                 type="button"
                 className="gap-2 transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal flex align-items-center"
               >
@@ -51,16 +47,20 @@ export default function LoginComponent() {
                   <p className="my-auto">Google</p>
                 </div>
               </button>
+
+              {/* github button */}
               <button
                 type="button"
                 className="gap-2 transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal flex align-items-center"
-                onClick={githublog}
+                // onClick={githublog}
               >
                 <div className="flex align-items-center gap-1 justify-center mx-auto">
                   <AiFillGithub className="text-xl my-auto" />
                   <p className="my-auto">Github</p>{" "}
                 </div>
               </button>
+
+              {/* magic button */}
               <button
                 type="button"
                 className="gap-2 transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal flex align-items-center"
@@ -90,9 +90,9 @@ export default function LoginComponent() {
                   className="w-4 h-4 inline-block align-text-top"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M10 19l-7-7m0 0l7-7m-7 7h18"
                   />
                 </svg>

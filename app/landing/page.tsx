@@ -9,8 +9,8 @@ export default function Landing() {
 
   useEffect(() => {
     if (localStorage.getItem("userInfo") === null) {
-      return router.push("/login");
-    }
+      return router.push("/");
+    } 
   });
 
   return (
