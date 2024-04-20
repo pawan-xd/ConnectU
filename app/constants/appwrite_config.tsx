@@ -125,13 +125,11 @@ class AppwriteConfig {
 		address: string,
 	): Promise<String> {
 		try {
-			let rnid = ID.unique();
-			console.log(rnid);
 			this.storage
 			.createFile(this.bannerBucketId, ID.unique(), banner)
 			.then((res) => {
 			this.databases
-				.createDocument(this.databaseId, this.activeCollId, rnid, {
+				.createDocument(this.databaseId, this.activeCollId, ID.unique(), {
 					eventname: eventname,
 					description: description,
 					url: `${process.env.NEXT_PUBLIC_ENDPOINT}/storage/buckets/${this.bannerBucketId}/files/${res.$id}/view?project=${process.env.NEXT_PUBLIC_PROJECTID}&mode=admin`,
@@ -139,6 +137,7 @@ class AppwriteConfig {
 					eventdate: eventdate,
 					email: email,
 					address: address,
+					created: JSON.parse(localStorage.getItem("userInfo") || "{}").$id,
 					registrations: [],
 				})
 				.then((res) => {

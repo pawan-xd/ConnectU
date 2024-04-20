@@ -6,11 +6,6 @@ import { useRouter } from "next/navigation";
 import { PhotoIcon } from "@heroicons/react/24/solid";
 import Header from "../components/header";
 
-interface Sponsors {
-	id: number;
-	name: string;
-	url: string;
-}
 
 const CreateEventPage = () => {
 	const [eventname, setEventName] = useState(" ");
@@ -19,22 +14,7 @@ const CreateEventPage = () => {
 	const [hostname, setHostName] = useState(" ");
 	const [eventdate, setEventDate] = useState(" ");
 	const [email, setEmail] = useState(" ");
-	// const [country, setCountry] = useState(" ");
 	const [address, setAddress] = useState(" ");
-	// const [city, setCity] = useState(" ");
-	// const [state, setState] = useState("");
-	// const [postal, setPostal] = useState(" ");
-	// const [audience, setAudience] = useState(" ");
-	// const [type, setType] = useState("In Person");
-	// const [attendees, setAttendees] = useState(0);
-	// const [price, setPrice] = useState(0);
-	// const [tech, setTech] = useState("Yes");
-	// const [agenda, setAgenda] = useState(" ");
-	// const [approval, setApproval] = useState(" ");
-	// const [twitter, setTwitter] = useState(" ");
-	// const [website, setWebsite] = useState(" ");
-	// const [linkedin, setLinkedin] = useState(" ");
-	// const [instagram, setInstagram] = useState(" ");
 
 	const router = useRouter();
 	const appwriteConfig = new AppwriteConfig();

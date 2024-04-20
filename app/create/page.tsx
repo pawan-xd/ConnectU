@@ -9,7 +9,7 @@ export default function Create() {
 
   useEffect(() => {
     if (localStorage.getItem("userInfo") === null) {
-      router.push("/login");
+      router.push("/");
     }
   });
 

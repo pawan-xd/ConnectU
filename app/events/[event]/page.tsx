@@ -98,11 +98,11 @@ export default function Event({ params }: { params: { event: string } }) {
                   {/* //Here comes the icon for location */}
                   <div>
                     <h3 className="text-black font-bold text-md sm:text-lg">
-                      {docs && docs["address"]}
+                      Address : {docs && docs["address"]}
                     </h3>
-                    <span className="text-gray-700">
+                    {/* <span className="text-gray-700">
                       {docs && docs["city"]}, {docs && docs["state"]}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function Event({ params }: { params: { event: string } }) {
                   <ReactMarkdown remarkPlugins={[gfm]}>
                     {docs && docs["description"]}
                   </ReactMarkdown>
-                  <h1 className="text-lg font-bold py-5 text-gray-700">
+                  {/* <h1 className="text-lg font-bold py-5 text-gray-700">
                     Our Sponsors
                   </h1>
                   <div className="mx-auto">
@@ -197,8 +197,8 @@ export default function Event({ params }: { params: { event: string } }) {
                           </div>
                         </div>
                       ))}
-                  </div>
-                  <div className="flex flex-col text-md sm:text-lg py-5">
+                  </div> */}
+                  {/* <div className="flex flex-col text-md sm:text-lg py-5">
                     <p className="text-black text-xl font-bold flex justify-center py">
                       {" "}
                       Follow us on
@@ -217,13 +217,13 @@ export default function Event({ params }: { params: { event: string } }) {
                         <AiOutlineInstagram fontSize={50} className="px-2" />
                       </a>
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
             <div className="w-90 mx-2  sm:w-1/3 sm:mx-0">
               <div className="bg-[#f8f9f9]  mx-auto rounded-xl p-2 mb-2 sm:mb-4">
-                <h3 className="text-black px-3 pb-3 pt-1 font-bold text-md sm:text-lg">
+                {/* <h3 className="text-black px-3 pb-3 pt-1 font-bold text-md sm:text-lg">
                   Location
                 </h3>
                 <hr />
@@ -270,7 +270,7 @@ export default function Event({ params }: { params: { event: string } }) {
 
                 <p className="font-bold text-gray-600 p-2 text-md sm:text-lg">
                   {docs && docs["hostname"]}
-                </p>
+                </p> */}
                 <button
                   className="w-full bg-[#f02e65] p-1 text-gray-200 hover:bg-[#990e3c] flex justify-center rounded-lg text-md sm:text-lg"
                   onClick={() => {

@@ -83,8 +83,9 @@ export default function EventListing() {
                         <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
                           {item.eventname}
                         </h1>
-                        <p className="mb-8 leading-relaxed">{item.agenda}</p>
-                        <div className="flex items-center mb-2">
+                        {/* <p className="mb-8 leading-relaxed">{item.agenda}</p> */}
+
+                        {/* <div className="flex items-center mb-2">
                           <MdOutlinePlace
                             className="mb-8 leading-relaxed"
                             size="30"
@@ -92,8 +93,9 @@ export default function EventListing() {
                           <p className="mb-8 leading-relaxed mx-2">
                             Type: {item.type}
                           </p>
-                        </div>
-                        <div className="flex items-center mb-2">
+                        </div> */}
+
+                        {/* <div className="flex items-center mb-2">
                           <IoIosPeople
                             className="mb-8 leading-relaxed"
                             size="30"
@@ -101,7 +103,8 @@ export default function EventListing() {
                           <p className="mb-8 leading-relaxed mx-2">
                             Audience: {item.audience}
                           </p>
-                        </div>
+                        </div> */}
+                        
                         <div className="flex justify-center">
                           <button
                             className="inline-flex text-white bg-[#f02e65] border-0 py-2 px-6 focus:outline-none hover:bg-[#b51349] rounded text-lg"

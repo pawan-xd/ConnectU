@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Icon from "../../public/logo/logo-transparent-svg.svg";
+import Icon from "../../public/logo/connectu.jpeg";
+// import Icon from "../../public/logo/logo-transparent-svg.svg";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {AppwriteConfig} from "../constants/appwrite_config";
@@ -40,7 +41,7 @@ export default function Header() {
             );
             if (sucess) {
               localStorage.removeItem("userInfo");
-              router.push("/");
+              router.push("/login");
             }
           }}
         >
